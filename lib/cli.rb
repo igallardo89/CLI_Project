@@ -8,10 +8,11 @@ class CLI
         puts ""
         puts "Welcome to Game Highlights!"
         puts ""
-        puts "Name a league"
+        puts "Name a current league"
         puts ""
-        @league = gets.strip.downcase
-        API.fetch_league(@league)
+        @competition = gets.strip.downcase
+        puts ""
+      
     end 
 
 end
