@@ -1,17 +1,17 @@
 class Competition 
-    attr_accessor :name, league_id
+  attr_accessor :name
 
-    @@all = [ ]
+     @@all = [ ]
 
-    def initialize(name:, league_id:)
+   def initialize(name:)
         @name = name
-        @league_id = drink_id
-        @@all << self
-    end
+   #     @competition_id = competition_id
+    #    @@all << self
+   end
 
-    def self.all
-        @@all
-    end
+  #  def self.all
+   #     @@all
+   # end
 
     #def find_by_competition(competition)
     #
