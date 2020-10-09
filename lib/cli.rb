@@ -10,11 +10,15 @@ class CLI
         puts " "
         puts "Name a Country"
         puts " "
-        @competition = gets.strip.upcase
+        @competitons = API.fetch_competition(@competition)
+        leagues = @competitions.map {|competition| competition["competition"]["name"]}.map {|name| name.uniq}
+        leagues.each do |l|
+            puts "#{i+1}:#{league}"
+        end
         
+         
 
-        puts " "
-    end 
+
 end
       
       
