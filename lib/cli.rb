@@ -8,13 +8,17 @@ class CLI
         puts " "
         puts "Welcome to League Highlights!"
         puts " "
-        puts "Name a Country"
+        puts "Current Leagues are found below:"
         puts " "
-        @competitons = API.fetch_competition(@competition)
-        leagues = @competitions.map {|competition| competition["competition"]["name"]}.map {|name| name.uniq}
-        leagues.each do |l|
-            puts "#{i+1}:#{league}"
-        end
+        @competitions = API.fetch_competition(@competition)
+        leagues = @competitions.map{ |competition| competition["competition"]["name"] }.map { |name|  name.match(/(^.*):/)[1] }.uniq
+        leagues.each do |league|
+        puts "#{league}"
+      
+      end
+    end
+        
+      
         
          
 
