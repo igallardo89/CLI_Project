@@ -6,39 +6,55 @@ class CLI
 
     def start
         puts " "
-        puts "Welcome to League Highlights!"
+        puts "Welcome to Game Finder!"
         puts " "
-        puts "Current Leagues are found below:"
+        puts "Look below for the current Leagues happening:"
         puts " "
         @competitions = API.fetch_competition(@competition)
-        leagues = @competitions.map{ |competition| competition["competition"]["name"] }.map { |name|  name.match(/(^.*):/)[1] }.uniq
+        leagues = @competitions.map{ |competition| competition["competition"]["name"] }.map { |name|  name.match(/(^.*):/)[1] }.uniq.sort
         leagues.each do |league|
         puts "#{league}"
       end
         puts " "
-        puts "Please a Country or Global League for games, or input 'exit' to quit."
+        puts "Pick a Country or Global League for current games or input 'exit' to quit."
         puts " "
-        inp = gets.strip.upcase
-        puts " "
-        if leagues.include? inp
+    
+        while true do
+         inp = gets.strip.upcase
+         puts " "
+        if inp.downcase == "exit"
+          puts " "
+          puts "Goodbye! See you next time!"
+          puts " "
+          exit
+        elsif leagues.include? inp
          games = find_games(inp)
+         
+         puts "Here are the games the league!"
+         puts ""
          game_titles = games.map { |game| game["title"] }
-         games_titles.each_with_index do |game_title, i|
+         game_titles.each_with_index do |game_title, i|
+          puts "#{i + 1} : #{game_title}"
+          puts " "
+         end
+         puts " "
+         puts "Type 'exit' to quit or pick another league to continue"
+         puts " "
+         leagues.each do |league|
+          puts "#{league}"
          end 
+          puts " "
+        else 
+          puts "No current games, try choose another league"
+          puts " "
         end
       end
-
-
-  
-
-        
-      
-       def find_games(inp)
+    end
+    
+      def find_games(inp)
         @competitions.map { |competition| competition if competition["competition"]["name"].start_with?(inp) }.compact
       end
-         
-
-
+      
 end
       
       
