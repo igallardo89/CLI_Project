@@ -16,7 +16,7 @@ class CLI
         puts "#{league}"
       end
         puts " "
-        puts "Pick a Country or Global League for current games or input 'exit' to quit."
+        puts "Pick a Country or Global League for recent games or input 'exit' to quit."
         puts " "
     
         while true do
@@ -29,12 +29,11 @@ class CLI
           exit
         elsif leagues.include? inp
          games = find_games(inp)
-         
-         puts "Here are the games the league!"
+         puts "Matches:"
          puts ""
          game_titles = games.map { |game| game["title"] }
          game_titles.each_with_index do |game_title, i|
-          puts "#{i + 1} : #{game_title}"
+          puts "#{i + 1}: #{game_title}"
           puts " "
          end
          puts " "
@@ -45,7 +44,7 @@ class CLI
          end 
           puts " "
         else 
-          puts "No current games, try choose another league"
+          puts "Invalid option, please try another league"
           puts " "
         end
       end
@@ -54,15 +53,10 @@ class CLI
       def find_games(inp)
         @competitions.map { |competition| competition if competition["competition"]["name"].start_with?(inp) }.compact
       end
+
+      
       
 end
       
-      
-      
-      
-      
-      
-      
-  
       
       
