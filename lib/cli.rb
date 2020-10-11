@@ -32,7 +32,7 @@ class CLI
          puts ""
          game_titles = games.map { |game| game ["title"] }
          game_titles.each_with_index do |game_title, i|
-         puts "#{i+1}:#{game_title}"
+         puts "#{i+1}:#{game_title}``"
          end 
          puts " "
          get_video_link(games)
@@ -74,4 +74,4 @@ class CLI
 end
       
       
-      
+      ``
