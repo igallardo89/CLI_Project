@@ -1,9 +1,13 @@
 # CLI_Project
 
 
-Install 
+Installation
 
-gem 
+gem install 
 
 
-https://opensource.org/licenses/MIT
+
+
+License
+
+The gem is available as open source under the terms of the MIT License.

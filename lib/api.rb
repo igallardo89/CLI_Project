@@ -6,7 +6,6 @@ class API
       uri = URI(url)
       response = Net::HTTP.get(uri)
       competitions= JSON.parse(response)
-      
    end
 end  
       
