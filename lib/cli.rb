@@ -13,6 +13,10 @@ class CLI
         API.fetch_competition(@competition)
         games = Competition.all
         print_competitions(games)
+        puts " "
+        puts "Type a number listed to see Match Details or type 'exit' to Quit."
+        @competition = gets.strip.downcase
+        puts " "
         
     
       end
