@@ -15,9 +15,19 @@ class CLI
         print_competitions(games)
         puts " "
         puts "Type a number listed to see Match Details or type 'exit' to Quit."
-        @competition = gets.strip.downcase
         puts " "
+        @competition = gets.strip.downcase 
+        puts " "
+        while @competition != 'exit' do 
+         match = Competition.find_by_title(@competition)[@competition.to_i-1]
+         binding.pry
+         
         
+         
+         #API.get_match_details(match)
+
+        end
+  
     
       end
 
@@ -28,7 +38,7 @@ class CLI
         game.each_with_index do | d, i |
           puts "#{ i + 1 }. #{d.title}"
        end 
-    end 
+      end 
       
 
   end

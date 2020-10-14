@@ -15,6 +15,14 @@ class Competition
         @@all
     end
 
+    def self.find_by_title(competition)
+        @@all.select {|g| g.title == competition}
+        
+       
+        
+
+    end
+
 
 
 end
