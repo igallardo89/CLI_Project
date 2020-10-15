@@ -16,8 +16,8 @@ class Competition
     end
 
     def self.find_by_name(competition)
-        @@all.find {|d| d.title == competition }
-        #not working yet
+        @@all.find {|d| d.title }
+        
         
        
     end

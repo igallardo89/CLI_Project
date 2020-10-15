@@ -20,10 +20,10 @@ class CLI
         while inp != 'exit' do
           binding.pry
           game = Competition.find_by_name(@competition)[inp.to_i-1]
-         #binding.pry
+         
           API.get_game_details(game)
           print_game(game)
-         # binding.pry
+       
 
 
 
