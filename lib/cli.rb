@@ -17,9 +17,15 @@ class CLI
         puts "Type a number listed to see Match Details or type 'exit' to quit"
         puts " "
         @game = gets.strip.downcase
-        
-        
-    end
+        while @game != 'exit' do
+        Games.find_by_index(@game)[@game.to_i-1]
+
+       # binding.pry
+       
+        end     
+      end
+
+
     def print_games(match)
       puts " "
       puts "Game Matches:"
@@ -27,5 +33,5 @@ class CLI
       match.each_with_index do | m , i|
         puts "#{ i + 1}. #{m.name}"
       end
+    end
   end
-end
