@@ -10,45 +10,22 @@ class CLI
         puts " "
         puts "Pick from the List of Games Below:"
         puts " "
-        API.fetch_competition(@competition)
-        games = Competition.all
-        print_competitions(games)
+        API.fetch_games(@game)
+        matches = Games.all
+        print_games(matches)
         puts " "
-        puts "Type a number listed to see Match Details or type 'exit' to Quit."
+        puts "Type a number listed to see Match Details or type 'exit' to quit"
         puts " "
-        inp = gets.strip.downcase 
-        while inp != 'exit' do
-          binding.pry
-          game = Competition.find_by_name(@competition)[inp.to_i-1]
-         
-          API.get_game_details(game)
-          print_game(game)
-       
-
-
-
-        end
+        @game = gets.strip.downcase
         
+        
+    end
+    def print_games(match)
+      puts " "
+      puts "Game Matches:"
+      puts " "
+      match.each_with_index do | m , i|
+        puts "#{ i + 1}. #{m.name}"
       end
-
-      def print_competitions(game)
-        puts " "
-        puts "Game Matches"
-        puts " "
-        game.each_with_index do | d, i |
-          puts "#{ i + 1 }. #{d.title}"
-       end 
-      end 
-
-      def print_game(game)
-        puts " "
-        puts "#{game.title} Game Highlights"
-        puts " "
-        puts "League: #{game.name}"
-        puts "Teams: #{game.teams}"
-        puts "Find video highlights here: #{game.url}"
-      end   
-
-      
-
   end
+end

@@ -1,40 +1,16 @@
 #handle all of the api request
 
 class API 
-   def self.fetch_competition(competitionn)
+
+   def self.fetch_games(game)
       url = "https://www.scorebat.com/video-api/v1/"
       uri = URI(url)
       response = Net::HTTP.get(uri)
-      competitions= JSON.parse(response)
-      competitions.each do |comp|
-         a = Competition.new(name: comp["competition"]["name"], title: comp["title"], date: comp["date"])
-      
+      games= JSON.parse(response)
+      games.each do |g|
+         a = Games.new(name: g["title"], date: g["date"])
+   
       end
-     end
-
-    def self.get_game_details(game)
-         url = "https://www.scorebat.com/video-api/v1/"
-         uri = URI(url)
-         response = Net::HTTP.get(uri)
-         details = JSON.parse(response)
-         game.name = details["title"]
-         game.league = details["competition"]["name"]
-         game.date = details["date"]
-         game.teams = details["side1"]["name"], details["side2"]["name"]
-         game.url = details["url"]
-     #binding.pry
-   
     end
-
    
-
-    
-
-
-   end
-   
-  
-    
-
-
-
+end
