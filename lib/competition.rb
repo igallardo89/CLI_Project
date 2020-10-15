@@ -1,13 +1,12 @@
 class Competition
-    attr_accessor :name, :title, :date 
+    attr_accessor :name, :title, :date, :url, :side_1, :side_2
 
-    @@all = [ ]
+    @@all = []
 
     def initialize(name:, title:, date:)
          @name = name
          @title = title
          @date = date
-         
          @@all << self
 
     end
@@ -17,7 +16,8 @@ class Competition
     end
 
     def self.find_by_name(competition)
-        @@all.select {|d| d.title binding.pry  }
+        @@all.find {|d| d.title == competition }
+        #not working yet
         
        
     end

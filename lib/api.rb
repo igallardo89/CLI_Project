@@ -12,6 +12,17 @@ class API
       end
      end
 
+    def self.get_game_details(game)
+         url = "https://www.scorebat.com/video-api/v1/"
+         uri = URI(url)
+         response = Net::HTTP.get(uri)
+         details = JSON.parse(response)
+         game.name = details["competition"]["name"]
+         game.date = details ["date"]
+     #binding.pry
+   
+    end
+
    
 
     

@@ -16,20 +16,18 @@ class CLI
         puts " "
         puts "Type a number listed to see Match Details or type 'exit' to Quit."
         puts " "
-        @competition = gets.strip.downcase 
-        while @competition != 'exit' do
-          a = Competition.find_by_name(@competition)
+        inp = gets.strip.downcase 
+        while inp != 'exit' do
+          binding.pry
+          game = Competition.find_by_name(@competition)[inp.to_i-1]
          #binding.pry
-
+          API.get_game_details(game)
+         # binding.pry
 
 
 
         end
         
-       
-
-   
-    
       end
 
       def print_competitions(game)
