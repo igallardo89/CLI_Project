@@ -1,7 +1,7 @@
 #handle all of the api request
 
 class API 
-   def self.fetch_competition(competition)
+   def self.fetch_competition(competitionn)
       url = "https://www.scorebat.com/video-api/v1/"
       uri = URI(url)
       response = Net::HTTP.get(uri)
@@ -12,9 +12,9 @@ class API
       end
      end
 
-   #  def self.get_match_details(match)
-      #binding.pry
-   #  end 
+   
+
+    
 
 
    end

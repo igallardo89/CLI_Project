@@ -1,5 +1,5 @@
 class Competition
-    attr_accessor :name, :title, :date
+    attr_accessor :name, :title, :date 
 
     @@all = [ ]
 
@@ -7,6 +7,7 @@ class Competition
          @name = name
          @title = title
          @date = date
+         
          @@all << self
 
     end
@@ -15,13 +16,18 @@ class Competition
         @@all
     end
 
-    def self.find_by_title(competition)
-        @@all.select {|g| g.title == competition}
+    def self.find_by_name(competition)
+        @@all.select {|d| d.title binding.pry  }
         
        
-        
-
     end
+
+ 
+  
+
+
+    
+        
 
 
 

@@ -17,17 +17,18 @@ class CLI
         puts "Type a number listed to see Match Details or type 'exit' to Quit."
         puts " "
         @competition = gets.strip.downcase 
-        puts " "
-        while @competition != 'exit' do 
-         match = Competition.find_by_title(@competition)[@competition.to_i-1]
-         binding.pry
-         
-        
-         
-         #API.get_match_details(match)
+        while @competition != 'exit' do
+          a = Competition.find_by_name(@competition)
+         #binding.pry
+
+
+
 
         end
-  
+        
+       
+
+   
     
       end
 
