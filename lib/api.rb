@@ -19,6 +19,7 @@ class API
          details = JSON.parse(response)
          game.name = details["competition"]["name"]
          game.date = details ["date"]
+         game.teams = ["side1"]["name"], ["side2"]["name"]
      #binding.pry
    
     end

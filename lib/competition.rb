@@ -1,5 +1,5 @@
 class Competition
-    attr_accessor :name, :title, :date, :url, :side_1, :side_2
+    attr_accessor :name, :title, :date, :url, :side1, :side2
 
     @@all = []
 
