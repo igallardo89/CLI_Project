@@ -18,8 +18,8 @@ class API
          response = Net::HTTP.get(uri)
          details = JSON.parse(response)
          game.name = details["competition"]["name"]
-         game.date = details ["date"]
-         game.teams = ["side1"]["name"], ["side2"]["name"]
+         game.date = details["date"]
+         game.teams = details["side1"]["name"], ["side2"]["name"]
      #binding.pry
    
     end
