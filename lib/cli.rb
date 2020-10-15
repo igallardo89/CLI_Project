@@ -22,6 +22,7 @@ class CLI
           game = Competition.find_by_name(@competition)[inp.to_i-1]
          #binding.pry
           API.get_game_details(game)
+          print_game(game)
          # binding.pry
 
 
@@ -38,6 +39,16 @@ class CLI
           puts "#{ i + 1 }. #{d.title}"
        end 
       end 
+
+      def print_game(game)
+        puts " "
+        puts "#{game.title} Game Highlights"
+        puts " "
+        puts "League: #{game.name}"
+        puts "Teams: #{game.teams}"
+        puts "Find video highlights here: #{game.url}"
+      end   
+
       
 
   end

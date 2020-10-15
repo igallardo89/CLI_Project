@@ -17,9 +17,11 @@ class API
          uri = URI(url)
          response = Net::HTTP.get(uri)
          details = JSON.parse(response)
-         game.name = details["competition"]["name"]
+         game.name = details["title"]
+         game.league = details["competition"]["name"]
          game.date = details["date"]
-         game.teams = details["side1"]["name"], ["side2"]["name"]
+         game.teams = details["side1"]["name"], details["side2"]["name"]
+         game.url = details["url"]
      #binding.pry
    
     end
