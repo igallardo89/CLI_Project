@@ -21,4 +21,5 @@ class Games
         @@all[index]
     end 
     
+    
 end
