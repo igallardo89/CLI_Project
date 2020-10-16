@@ -15,7 +15,7 @@ ruby bin/start
 
 Overview: Description
 
-Here you find a CLI project developed for a User looking for Game Highlights for all recent International Soccer Leagues. The user is able to make a selection for the list of leagues provided to them then a game. The option will be followed by a url link to the highlights of that specific game.
+Here you find a CLI project developed for a User looking for Game Highlights for all recent International Soccer Games. The user is able to make a selection from the list of games provided to them then pick one. The option will be followed by information and url link to the highlights of that specific game.
 
 Developement
 After checking out the repo, run bin/setup to install dependencies. Then, run r spec to run the tests. 
