@@ -16,23 +16,26 @@ class CLI
       puts " "
       puts "Type a number listed to see Match Details or type 'exit' to quit"
       puts " "
-      inp = nil
       inp = gets.strip.downcase
       while inp != 'exit' do
-        game_selected = Games.find_by_index(inp.to_i-1)
         if inp == 'list'
           print_games(matches)
-        elsif game_selected == nil
+        else 
+          inp = inp.to_i-1
+          if inp < 0 || inp >= Games.all.length
+            puts " "
+            puts "Invalid option:"
+            puts " "
+          else
+            game_selected = Games.find_by_index(inp)
+            game_details(game_selected) 
+          end
+        end 
+        puts "Search for another team, type 'list' to see game matches again or type 'exit' to quit."
         puts " "
-        puts "Invalid option:"
-       else 
-          inp == inp.to_i > 0 && inp.to_i <= choice.length
-          game_details(game_selected)
-      end 
-        puts "Search for another team, or type exit to 'exit'."
-        puts " "
-         inp = gets.strip.downcase
-      end 
+        inp = gets.strip.downcase
+        end 
+      puts " "  
       puts "Goodbye! See you next time!"
     end
 
