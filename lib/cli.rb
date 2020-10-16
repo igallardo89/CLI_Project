@@ -16,13 +16,30 @@ class CLI
         puts " "
         puts "Type a number listed to see Match Details or type 'exit' to quit"
         puts " "
-        @game = gets.strip.downcase
-        while @game != 'exit' do
-        Games.find_by_index(@game)[@game.to_i-1]
+        puts " "
+        inp = gets.strip.downcase
+        while inp != 'exit' 
+          
+          if inp.to_i > 0
+          choice = Games.find_by_index(inp.to_i-1)
+          if choice == nil
+            puts "Sorry try a Game from the list!"
+          else
+            puts " "
+            puts "Name: #{choice.name}"
+            puts "Date & Time: #{choice.date}"
+            puts "League: #{choice.league}"
+            puts "Team 1: #{choice.team_1}"
+            puts "Team 2: #{choice.team_2}"
+            puts "Watch Game Highlights here: #{choice.url}!"
+          end
 
-       # binding.pry
+        
+        
+     
        
-        end     
+          end  
+        end
       end
 
 
