@@ -28,4 +28,4 @@ This project is intended to be a safe, welcoming space for collaboration, and co
 
 License
 
-The gem is available as open source under the terms of the MIT License.
+The gem is available as open source under the terms of the MIT License.git 

@@ -10,7 +10,7 @@ class CLI
       puts " "
       puts "Pick from the List of Games Below:"
       puts " "
-      API.fetch_games(@game)
+      API.fetch_games
       matches = Games.all
       print_games(matches)
       puts " "

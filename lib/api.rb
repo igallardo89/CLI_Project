@@ -2,7 +2,7 @@
 
 class API 
 
-   def self.fetch_games(game)
+   def self.fetch_games
       url = "https://www.scorebat.com/video-api/v1/"
       uri = URI(url)
       response = Net::HTTP.get(uri)
