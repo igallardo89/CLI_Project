@@ -14,12 +14,15 @@ class CLI
       matches = Games.all
       print_games(matches)
       puts " "
+      teams = Games.teams.uniq
       puts "Type a number listed to see Match Details or type 'exit' to quit"
-      puts " "
+      puts " "    
       inp = gets.strip.downcase
       while inp != 'exit' do
         if inp == 'list'
           print_games(matches)
+        elsif inp == 'teams'
+          print_teams(teams)
         else 
           inp = inp.to_i-1
           if inp < 0 || inp >= Games.all.length
@@ -45,6 +48,15 @@ class CLI
     puts " "
     match.each_with_index do | m , i|
       puts "#{ i + 1 }. #{m.name}"
+    end
+  end
+
+  def print_teams(teams)
+    puts " "
+    puts "All the teams playing"
+    puts " "
+    teams.each_with_index do | t , i|
+      puts "#{ i + 1}. #{t}"
     end
   end
 

@@ -8,8 +8,7 @@ class API
       response = Net::HTTP.get(uri)
       games= JSON.parse(response)
       games.each do |g|
-         a = Games.new(name: g["title"], date: g["date"], league: g["competition"]["name"], team_1: g["side1"]["name"], team_2: g["side2"]["name"], url: g["url"] )
-        
+         a = Games.new(name: g["title"], date: g["date"], league: g["competition"]["name"], team_1: g["side1"]["name"], team_2: g["side2"]["name"], url: g["url"] )    
       end
     end
    
